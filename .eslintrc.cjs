@@ -5,42 +5,56 @@ module.exports = {
     jest: true,
   },
   extends: [
-    "eslint-config-airbnb-base",
-    "eslint-config-airbnb-typescript/base",
-    "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
+    'eslint-config-airbnb-base',
+    'eslint-config-airbnb-typescript/base',
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    'prettier',
+    'plugin:prettier/recommended',
   ],
   overrides: [
     {
       env: {
         node: true,
       },
-      files: [".eslintrc.{js,cjs}"],
+      files: ['.eslintrc.{js,cjs}'],
       parserOptions: {
-        sourceType: "script",
+        sourceType: 'script',
       },
     },
   ],
-  parser: "@typescript-eslint/parser",
+  parser: '@typescript-eslint/parser',
   parserOptions: {
-    project: "./tsconfig.json",
+    project: './tsconfig.json',
     tsconfigRootDir: __dirname,
-    ecmaVersion: "latest",
-    sourceType: "module",
-    "@typescript-eslint/no-explicit-any": 2,
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+    '@typescript-eslint/no-explicit-any': 2,
   },
-  plugins: ["import", "@typescript-eslint"],
+  plugins: [
+    'eslint-plugin-prettier',
+    'prettier',
+    'import',
+    '@typescript-eslint',
+  ],
   rules: {
-    "no-console": 0,
+    'linebreak-style': 0,
+    'no-console': 0,
+    'prettier/prettier': [
+      'warn',
+      {
+        endOfLine: 'auto',
+      },
+    ],
   },
   settings: {
-    "import/resolver": {
+    'import/resolver': {
       typescript: true,
     },
-    "import/parsers": {
-      "@typescript-eslint/parser": [".ts"],
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.ts'],
     },
     noInlineConfig: true,
   },
-  ignorePatterns: ["vite.config.ts"],
+  ignorePatterns: ['vite.config.ts'],
 };
